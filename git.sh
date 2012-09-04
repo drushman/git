@@ -12,18 +12,22 @@ DRUPAL_ROOT='dirname $0'
 echo "$(dirname $(readlink -f $0))"
 
 #cd $0
-exit;
+#exit;
 if [ ! -d "$BACKUP_DIRECTORY.git" ]
 then
    cd $BACKUP_DIRECTORY	
    git init 
    echo -n "please input link remote on your Repository:" 
-   cd $DRUPAL_ROOT
+   #cd $DRUPAL_ROOT
    read link
 	#else
    #rm .git
 fi
 
+if grep -q "remote" .git.config; then
+    echo "Found"
+fi
+exit;
 
 for site in $( ls "$DRUPAL_ROOT/sites" )
 do
