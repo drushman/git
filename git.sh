@@ -9,8 +9,9 @@ DRUPAL_ROOT='dirname $0'
 
 
 #_now=$(date +"%m_%d_%Y")
-echo "$DRUPAL_ROOT"
-cd $0
+echo "$(dirname $(readlink -f $0))"
+
+#cd $0
 exit;
 if [ ! -d "$BACKUP_DIRECTORY.git" ]
 then
